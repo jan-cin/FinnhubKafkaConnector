@@ -43,11 +43,11 @@ Supported candle resolutions are 1, 5, 15, 30 and 60 minutes.<br /><br /><br />
 
 
 ## Example usage
-1. Set `api.token` field with you Finnhub token in `config\finnhub_kafka_connector_example_config.json` file
+1. in `config\finnhub_kafka_connector_example_config.json` set `api.token` field to your Finnhub token 
 2. Run `mvn clean package` in project folder to build connector into single jar file
 3. `docker-compose up -d` in project folder to run docker containers, which:
    1. Starts zookeper, kafka, schema and kafka connect containers
-   2. `config\register_config.sh` is run in kafka-connect container. It calls Connect REST Interface to
+   2. Runs `config\register_config.sh` in kafka-connect container. It calls Connect REST Interface to
 register FinnhubKafkaConnector worker  with sample settings (`config\finnhub_kafka_connector_example_config.json`)
 
 ## Sample record
@@ -109,4 +109,4 @@ register FinnhubKafkaConnector worker  with sample settings (`config\finnhub_kaf
 ```
 
 ## Development
-To allow debugging, change `KAFKA_DEBUG:` option to `y` in `docker-compose.yml` for kafka-connect
+To allow debugging, change `KAFKA_DEBUG:` option to `y` in `docker-compose.yml` for kafka-connect and attach remote debugger to localhost:8888. If you want to kafka connect to wait for debugger to attach before starting, then add `DEBUG_SUSPEND_FLAG: "y"` in `docker-compose.yml` in kafka-connect environment variables.
