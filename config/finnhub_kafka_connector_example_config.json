@@ -1,0 +1,14 @@
+{
+	"name":"finnhub_connect_worker_1",
+	"config":{
+		"tasks.max":1,
+		"connector.class":"com.github.jan_cin.FinnhubKafkaConnector.FinnhubSourceConnector",
+		
+		"api.token":"set-your-api-token-here",
+		"topic":"finnhub_candles",
+		"market_type":"stock",
+		"symbols":"AAPL,GOOGL,TSLA",
+		"resolution":1,
+		"get.last.n.hours":24
+		}
+}
